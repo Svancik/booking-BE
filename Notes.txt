@@ -1,0 +1,7 @@
+NODEMON - npm add nodemon - zajišťuje "živou" backend stránku - není potřeba přes terminál web znovu pouštět
+ - do scriptu package.json se musí zapsat kód níže
+
+package.json
+   "scripts": {
+    "start": "nodemon index.js"
+  },
