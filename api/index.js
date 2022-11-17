@@ -36,6 +36,20 @@ app.use("/api/hotels", hotelsRoute);
 app.use("/api/auth", roomsRoute);
 
 
+//pomocí next() se nasměřujeme do další middleware route
+//err - díky tomu podchytíme jakékoliv errory v index.js a všech routes uvnitř index.js => globálně handlujeme errory
+app.use((err,req,res,next) =>{
+    //err získáváme z předchozí middleware fce uvnitř route
+    const errorStatus = err.status || 500;
+    const errorMessage = err.message || "Something went wrong.";
+    return res.status(errorStatus).json({
+        success: false,
+        status: errorStatus,
+        message: errorMessage,
+        stack: err.stack
+    });
+});
+
 app.get("/", (req,res) => {
 res.send("hello first request");
 });

@@ -1,6 +1,7 @@
 import express from "express";
 import Hotel from "../models/Hotel.js";
 
+
 const router = express.Router();
 
 //CREATE
@@ -47,12 +48,13 @@ router.get("/:id", async (req, res) =>{
 });
 
 //GET ALL
-router.get("/", async (req, res) =>{    
-    try{
+router.get("/", async (req, res, next) =>{    
+    try{       
         const hotels = await Hotel.find();
         res.status(200).json(hotels);
     } catch(err){
-        res.status(500).json(err);
+        //pomocí next(err) předáváme error middleware fci app.use() v index.js (je to další fce v pořadí)
+        next(err);
     }
 });
 
