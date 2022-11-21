@@ -1,54 +1,41 @@
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema({
-    username:{
+    username: {
         type: String,
         required: true,
-        unique: true
-    },
-    type:{
+        unique: true,
+      },
+      email: {
         type: String,
-        required: true
-    },
-    city:{
+        required: true,
+        unique: true,
+      },
+      country: {
         type: String,
-        required: true
-    },
-    address:{
-        type: String,
-        required: true
-    },
-    distance:{
-        type: String,
-        required: true
-    },
-    photos:{
-        type: [String]    
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    desc: {
-        type: String,
-        required: true
-    },
-    rating: {
-        type: Number,
-        min: 0,
-        max: 5
-    },
-    rooms: {
-        type: [String]
-    },
-    cheapestPrice:{
-        type: Number,
-        required: true
-    },
-    featured:{
-        type: Boolean,
        
-    }
-});
+      },
+      img: {
+        type: String,
+      },
+      city: {
+        type: String,
+    
+      },
+      phone: {
+        type: String,
+    
+      },
+      password: {
+        type: String,
+        required: true,
+      },
+      isAdmin: {
+        type: Boolean,
+        default: false,
+      },
+},
+{timestamps:true}
+);
 
-export default mongoose.model("Hotel", UserSchema);
+export default mongoose.model("User", UserSchema);
