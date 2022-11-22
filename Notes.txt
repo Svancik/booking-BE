@@ -5,3 +5,11 @@ package.json
    "scripts": {
     "start": "nodemon index.js"
   },
+
+
+Cookie a verifikace tokenu JWT 
+- uvnitř controllers/auth.js vracíme jako response soubor Cookie v kterém je ukryt JWT klíč do kterého se nedá pronikonout (httpOnly) a to se uloží v prohlížeči.
+- uvnitř verifyToken.js máme kód na ověření cookie uvnitř
+- na route "localhost:8800/api/users/checkauthentication" zavoláme verifyToken.js fci která načte cookie z prohlížeče k danému username a pokud je vše ok tak pomocí next()
+  se vykoná další kód.
+- cookie můžeme odstranit ale při loginu nám opět vznikne a uloží se
