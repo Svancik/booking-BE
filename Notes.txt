@@ -13,3 +13,10 @@ Cookie a verifikace tokenu JWT
 - na route "localhost:8800/api/users/checkauthentication" zavoláme verifyToken.js fci která načte cookie z prohlížeče k danému username a pokud je vše ok tak pomocí next()
   se vykoná další kód.
 - cookie můžeme odstranit ale při loginu nám opět vznikne a uloží se
+
+
+
+JAK NAPOJIT DO SOUČASNÉHO PROJEKTU JINÝ PROJEKT Z GITHUB:
+1) Vytvořit novou složku například "client" a do ní vstoupit
+2) git clone --single-branch -b "react-mini" https://github.com/safak/youtube2022.git .
+  "react-mini" je název branch - pravděpodobně se setkáme s "main"
