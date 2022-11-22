@@ -35,7 +35,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/hotels", hotelsRoute);
-app.use("/api/auth", roomsRoute);
+app.use("/api/rooms", roomsRoute);
 
 
 //pomocí next() se nasměřujeme do další middleware route
