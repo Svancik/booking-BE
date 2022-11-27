@@ -50,3 +50,12 @@ router.get("/countByCity", countByCity);
 
 TOTO VÝŠE NEBUDE FUNGOVAT JELIKOŽ MÁME :/id prvně tak u dalšího router.get() si program myslí že /countByCity = /:id
 TOTO LZE VYŘEŠIT JEDNODUCHOU ÚPRAVOU KÓDU VIZ NÍŽE - ZMĚNÍME URL JEDNOHO ROUTERU
+
+
+PROBLÉM S CORS LZE VYŘEŠIT NÁSLEDOVNĚ:
+
+v /api terminál: npm add CORS
+index.js: 
+
+  import cors from "cors";
+  app.use(cors());
