@@ -49,3 +49,20 @@ export const getHotels = async (req, res, next) => {
     next(err);
   }
 };
+
+/*KÓD NÍŽE VYKONÁME pomocí query kdy v url předáme data - viz níže
+  localhost:8800/api/hotels/countByCity?cities=berlin,madrid,london
+  díky tomu získáme počet hotelů které jsou ve městech */
+  
+export const countByCity = async (req, res, next) => {
+  const cities = req.query.cities.split(",");
+  try{
+    const list = await Promise.all(cities.map(city=>{
+      return Hotel.countDocuments({city:city});
+    }))
+    const hotels = await Hotel.find();
+    res.status(200).json(list);
+  } catch (err){
+    next(err);
+  }
+};
