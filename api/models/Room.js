@@ -16,8 +16,8 @@ const RoomSchema = new mongoose.Schema({
     maxPeople: {
         type: Number,
         required: true
-    },
-    roomNumbers:[{number: Number, unavailableDates:[{type: [Date]}] }],
+    },  
+    roomNumbers: [{ number: Number, unavailableDates: {type: [Date]}}],
     /*  Ukázka toho na jakém principu funguje struktura pole roomNumbers výše 
         [
         {number: 101, unavailableDates:[01.05.2022,02.05.2022]},
