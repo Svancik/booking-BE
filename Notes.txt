@@ -53,6 +53,7 @@ TOTO LZE VYŘEŠIT JEDNODUCHOU ÚPRAVOU KÓDU VIZ NÍŽE - ZMĚNÍME URL JEDNOHO
 
 
 PROBLÉM S CORS LZE VYŘEŠIT NÁSLEDOVNĚ:
+https://www.youtube.com/watch?v=eiVRLGRdPv8&ab_channel=SagarS
 
 v /api terminál: npm add CORS
 index.js: 
