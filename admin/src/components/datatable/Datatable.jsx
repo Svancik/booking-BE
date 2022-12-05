@@ -6,13 +6,17 @@ import { useState, useEffect } from "react";
 import useFetch from "./../../hooks/useFetch";
 import axios from "axios";
 
+//TODO: Zřídit odstraňování roomů v datatable.
+
 const Datatable = ({ columns }) => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
+  const fullPath = "";
 
   const [list, setList] = useState();
   const { data, loading, error } = useFetch(`/${path}`);
-  console.log("list: ", list);
+  console.log("data: ", data);
+
   useEffect(() => {
     setList(data);
   }, [data]);
@@ -20,6 +24,7 @@ const Datatable = ({ columns }) => {
   console.log("data: ", data);
   const handleDelete = async (id) => {
     try {
+      path === "rooms" ? (fullPath = path + "/" + id + "") : (fullPath = "");
       await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
     } catch (err) {}
@@ -50,7 +55,7 @@ const Datatable = ({ columns }) => {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-        Add New {path}
+        {path}
         <Link to={`/${path}/new`} className="link">
           Add New
         </Link>
