@@ -47,7 +47,7 @@ function App() {
               <Route path=":productId" element={<ProtectedRoute><Single /></ProtectedRoute>} />
               <Route
                 path="new"
-                element={<ProtectedRoute><NewHotel inputs={productInputs} title="Add New Product" /></ProtectedRoute>}
+                element={<ProtectedRoute><NewHotel /></ProtectedRoute>}
               />
             </Route>
           </Route>
