@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar/Navbar";
 import { Header } from "../../components/header/Header";
 import "./list.css";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import { SearchItem } from "./../../components/searchItem/SearchItem";
@@ -27,6 +27,9 @@ export default function List() {
   const { data, loading, error, reFetch } = useFetch(
     `hotels?city=${destination}&min=${min || 0}&max=${max || 9999}`
   );
+  useEffect(() => {
+    const { data, loading, error } = reFetch();
+  }, [destination]);
 
   const handleClick = () => {
     reFetch();

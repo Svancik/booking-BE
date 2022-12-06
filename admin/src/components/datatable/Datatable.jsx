@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 import useFetch from "./../../hooks/useFetch";
 import axios from "axios";
 
-//TODO: Zřídit odstraňování roomů v datatable.
+//TODO: Zřídit odstraňování roomů v datatable. Fetchovat data pomocí useFetch z /hotels path a najít shodu id (params.row._id) s id v jednom z hotelů a
+//router.delete("/:id/:hotelid", verifyAdmin, deleteRoom);
 
 const Datatable = ({ columns }) => {
   const location = useLocation();
@@ -15,16 +16,13 @@ const Datatable = ({ columns }) => {
 
   const [list, setList] = useState();
   const { data, loading, error } = useFetch(`/${path}`);
-  console.log("data: ", data);
 
   useEffect(() => {
     setList(data);
   }, [data]);
 
-  console.log("data: ", data);
   const handleDelete = async (id) => {
     try {
-      path === "rooms" ? (fullPath = path + "/" + id + "") : (fullPath = "");
       await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
     } catch (err) {}
